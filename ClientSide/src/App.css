@@ -1,0 +1,326 @@
+.App {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 15% 85%;
+}
+
+header {
+  background-color: #333232;
+}
+#logo {
+  width: 6%;
+  position: relative;
+  float: left;
+  margin-left: 2%;
+}
+
+.UserHeader {
+  font-weight: bold;
+  color: white;
+  font-size: 2.5vh;
+  position: relative;
+  margin-right: 2vh;
+
+  float: right;
+}
+.formContainer a {
+  float: center;
+}
+.Main {
+  width: 100%;
+  height: 100%;
+}
+.LoginForm {
+  float: center;
+  margin: auto;
+  width: 30%;
+}
+#loginSubmit {
+  float: center;
+}
+
+#userLogin {
+  margin-bottom: 2vh;
+}
+#passLogin {
+  margin-bottom: 2vh;
+}
+.form-control {
+  width: 25vh;
+}
+
+.LoginButton {
+  box-shadow: inset -1px 1px 1px 0px #6acc3d;
+  background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+  background-color: #74ad5a;
+  border-radius: 17px;
+  border: 1px solid #3b6e22;
+
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Georgia;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 18px 31px;
+  text-decoration: none;
+}
+.LoginButton:hover {
+  background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+  background-color: #68a54b;
+}
+.LoginButton:active {
+  top: 1px;
+}
+
+form h3 {
+  margin-right: 2vh;
+  float: left;
+}
+.registerSubmit {
+  box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  background: linear-gradient(to bottom, #768d87 5%, #2b4545 100%);
+  background-color: #768d87;
+  border-radius: 26px;
+  border: 2px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Georgia;
+  font-size: 17px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 19px 27px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #2b665e;
+  margin-left: 6%;
+}
+.registerSubmit:hover {
+  background: linear-gradient(to bottom, #2b4545 5%, #768d87 100%);
+  background-color: #2b4545;
+}
+
+.registerSubmit:active {
+  position: relative;
+  top: 1px;
+}
+
+.RegForm {
+  width: 30%;
+  margin: auto;
+}
+
+#headerLogin {
+  margin-right: 5%;
+  margin-top: 2%;
+  float: right;
+  width: 8%;
+  height: 60%;
+}
+@media screen and (max-width: 606px) and (max-height: 850px) {
+  #headerLogin {
+    width: 13%;
+    height: 47%;
+  }
+
+  #logo {
+    width: 22%;
+    position: relative;
+    float: left;
+    margin-left: 2%;
+  }
+}
+@media screen and (max-width: 360px) and (max-height: 640px) {
+  #headerLogin {
+    width: 17%;
+    height: 48%;
+  }
+}
+.btn {
+  float: right;
+  font-weight: bold;
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+.btn-three {
+  color: #fff;
+  transition: all 0.5s;
+  position: relative;
+}
+.btn-three::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+.btn-three:hover::before {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+}
+.btn-three::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: scale(1.2, 1.2);
+}
+.btn-three:hover::after {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+#LogoutButton {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.AddVacation {
+  margin-left: 10%;
+  margin-top: 3%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 30px 30px;
+  border: 3px solid #405895;
+  border-radius: 100px;
+  background: #688ff2;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#688ff2),
+    to(#405895)
+  );
+  background: -moz-linear-gradient(top, #688ff2, #405895);
+  background: linear-gradient(to bottom, #688ff2, #405895);
+  font: normal normal bold 30px georgia;
+  color: #ffffff;
+  text-decoration: none;
+}
+.AddVacation:hover,
+.AddVacation:focus {
+  border: 3px solid #506eba;
+  background: #7dacff;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#7dacff),
+    to(#4d6ab3)
+  );
+  background: -moz-linear-gradient(top, #7dacff, #4d6ab3);
+  background: linear-gradient(to bottom, #7dacff, #4d6ab3);
+  color: #ffffff;
+  text-decoration: none;
+}
+.AddVacation:active {
+  background: #405895;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#405895),
+    to(#405895)
+  );
+  background: -moz-linear-gradient(top, #405895, #405895);
+  background: linear-gradient(to bottom, #405895, #405895);
+}
+
+.form-group {
+  margin: auto;
+  margin-bottom: 2%;
+}
+#createVacationButton {
+  margin-top: 2%;
+}
+.homePage {
+  margin: auto;
+  width: 90%;
+  background-image: url("https://i.imgur.com/G97dhfo.jpg");
+  background-size: 100%, 100%;
+  background-repeat: no-repeat;
+}
+.cardHolder {
+  display: inline-block;
+
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-bottom: 1%;
+}
+#followButton {
+  margin-left: 5%;
+}
+.card-img-top {
+  width: 286px;
+  height: 180px;
+}
+.list-group-Vacation {
+  width: 100%;
+  margin-top: 3%;
+}
+.listGroundHolder {
+  width: 30%;
+}
+.Followed {
+  box-shadow: inset 0px 1px 0px 0px #9acc85;
+  background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+  background-color: #74ad5a;
+  border: 1px solid #3b6e22;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+  float: right;
+}
+.Followed:hover {
+  background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+  background-color: #68a54b;
+}
+.Followed:active {
+  position: relative;
+  top: 1px;
+}
+.Follow {
+  box-shadow: inset 0px 1px 0px 0px #ff0000;
+  background: linear-gradient(to bottom, #ff0000 5%, #ff000d 100%);
+  background-color: #ff0000;
+  border: 1px solid #ff0000;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+  float: right;
+}
+.Follow:hover {
+  background: linear-gradient(to bottom, #ff000d 5%, #ff0000 100%);
+  background-color: #ff000d;
+}
+.Follow:active {
+  position: relative;
+  top: 1px;
+}
