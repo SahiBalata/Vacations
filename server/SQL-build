@@ -29,4 +29,13 @@ CREATE TABLE vaca (
     primary key(vac_id)
 );
 
+
+//Create follows table :
+CREATE TABLE follows (
+  follow_id int auto_increment,
+  username varchar(255),
+  vacation varchar(255),
+  primary key (follow_id)
+);
+
 // If you want to make a user an admin, change the admin field from 0 to 1.

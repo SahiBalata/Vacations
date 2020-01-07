@@ -5,6 +5,14 @@ import DeleteVacation from "./adminComps/DeleteVacation";
 import AddVacationModal from "./adminComps/AddVacationModal";
 import EditVacationModal from "./adminComps/EditVacationModal";
 import DeleteVacationModal from "./adminComps/DeleteVacationModal";
+import AdminChart from "./adminComps/AdminChart";
+import {
+  setIsLoggedIn,
+  setFollowedVacations,
+  setUnFollowedVacations,
+  setVacationNames,
+  setVacationFollowers
+} from "../../redux/action";
 
 import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
@@ -17,7 +25,10 @@ class AdminPage extends Component {
     deleteModalShow: true,
     staticName: "",
     vacationsToDelete: [],
-    requestedVacation: []
+    requestedVacation: [],
+    vacationsNameForChart: [],
+    vacationsFollowersForChart: [],
+    chartData: {}
   };
 
   componentDidMount() {
@@ -28,6 +39,41 @@ class AdminPage extends Component {
       deleteModalShow: false,
       requestedVacation: {}
     });
+    const { setFollowedVacations } = this.props;
+    const { setUnFollowedVacations } = this.props;
+    const { setVacationFollowers } = this.props;
+    const { setVacationNames } = this.props;
+    let obj = { userName: this.props.userName };
+    let regJSONED = JSON.stringify(obj);
+    fetch("http://localhost:4000/vacations/getfollowedvacations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: regJSONED
+    })
+      .then(response => {
+        return response.text();
+      })
+      .then(data => {
+        let jsonedData = JSON.parse(data);
+        setUnFollowedVacations(jsonedData.unFollowedList);
+        setFollowedVacations(jsonedData.followedListToSend);
+        let vacationsList = this.props.followedVacations.concat(
+          this.props.unfollowedVacations
+        );
+        let vacationNameArr = [];
+        let vacationFollowersArr = [];
+        vacationsList.map(v => {
+          vacationNameArr.push(v.name);
+
+          vacationFollowersArr.push(Number(v.followers));
+        });
+
+        setVacationNames(vacationNameArr);
+        setVacationFollowers(vacationFollowersArr);
+        console.log(this.props);
+      });
   }
 
   //Adding vacattion Modal sector
@@ -277,14 +323,28 @@ class AdminPage extends Component {
             vacations={this.state.vacationsToDelete}
             click={this.handleDelete}
           />
+          <AdminChart chartData={this.state.chartData} />
         </>
       );
     }
   }
 }
 
-export default connect(state => ({
-  isLoggedIn: state.isLoggedIn,
-  isAdmin: state.isAdmin,
-  userName: state.userName
-}))(AdminPage);
+export default connect(
+  state => ({
+    isLoggedIn: state.isLoggedIn,
+    isAdmin: state.isAdmin,
+    userName: state.userName,
+    followedVacations: state.followedVacations,
+    unfollowedVacations: state.unfollowedVacations,
+    chartVacationName: state.chartVacationName,
+    chartVacationFollows: state.chartVacationFollows
+  }),
+  {
+    setIsLoggedIn,
+    setFollowedVacations,
+    setUnFollowedVacations,
+    setVacationNames,
+    setVacationFollowers
+  }
+)(AdminPage);

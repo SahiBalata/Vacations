@@ -3,7 +3,9 @@ const initialState = {
   isAdmin: false,
   userName: "",
   followedVacations: [],
-  unfollowedVacations: []
+  unfollowedVacations: [],
+  chartVacationName: [],
+  chartVacationFollows: []
 };
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -24,6 +26,17 @@ function reducer(state = initialState, action) {
         ...state,
         unfollowedVacations: action.payload
       };
+    case "SET_VACATION_NAMES":
+      return {
+        ...state,
+        chartVacationName: action.payload
+      };
+    case "SET_VACATION_FOLLOWERS":
+      return {
+        ...state,
+        chartVacationFollows: action.payload
+      };
+
     default:
       return state;
   }

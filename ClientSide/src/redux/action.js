@@ -16,3 +16,9 @@ export const setUnFollowedVacations = function setUnFollowedVacations(
 ) {
   return { type: "SET_UNFOLLOWED_VACATIONS", payload: unfollowedVacations };
 };
+export const setVacationNames = function setVacationNames(arr) {
+  return { type: "SET_VACATION_NAMES", payload: arr };
+};
+export const setVacationFollowers = function setVacationFollowers(arr) {
+  return { type: "SET_VACATION_FOLLOWERS", payload: arr };
+};
